@@ -7,7 +7,7 @@ load_dotenv()
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 
-with open("users.txt") as f:
+with open("./users.txt") as f:
     user_ids = [line.strip() for line in f if line.strip()]
 
 for user_id in user_ids:
