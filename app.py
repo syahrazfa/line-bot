@@ -36,6 +36,7 @@ def handle_message(event):
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     user_id = event.source.user_id
+    print("USER ID:", user_id)
 
     with open("users.txt", "a+") as f:
         f.seek(0)
@@ -45,8 +46,9 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="User registered.")
+        TextSendMessage(text="Registered.")
     )
+
 
 
 if __name__ == "__main__":
