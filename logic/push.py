@@ -7,12 +7,11 @@ load_dotenv()
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 
-users = [
-    "raz.fa"
-]
+with open("users.txt") as f:
+    user_ids = [line.strip() for line in f if line.strip()]
 
-for user_id in users:
+for user_id in user_ids:
     line_bot_api.push_message(
         user_id,
-        TextSendMessage(text="Hai ganteng")
+        TextSendMessage(text="Scheduled broadcast message")
     )

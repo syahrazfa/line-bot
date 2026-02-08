@@ -33,5 +33,21 @@ def handle_message(event):
         TextSendMessage(text="Bot is alive.")
     )
 
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    user_id = event.source.user_id
+
+    with open("users.txt", "a+") as f:
+        f.seek(0)
+        users = set(line.strip() for line in f)
+        if user_id not in users:
+            f.write(user_id + "\n")
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="User registered.")
+    )
+
+
 if __name__ == "__main__":
     app.run(port=5000)
