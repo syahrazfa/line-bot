@@ -1,6 +1,9 @@
 import os
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USERS_FILE = os.path.join(BASE_DIR, "users.txt")
