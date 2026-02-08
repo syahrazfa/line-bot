@@ -33,6 +33,5 @@ def handle_message(event):
         TextSendMessage(text="Bot is alive.")
     )
 
-
 if __name__ == "__main__":
     app.run(port=5000)
